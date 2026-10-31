@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#05060f">
+<title>Ficha · Vero Cosmos</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+:root{color-scheme:only light;--bg:#05060f;--fg:#eef1ff;--mut:#8f98c0;--line:#343b60;--card:#0b1025d9;--acc:#8ab4ff}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif;overflow:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;background:radial-gradient(ellipse at 50% 30%,#111936 0%,#080b19 55%,#05060f 100%)}
+.wrap{position:fixed;inset:0;z-index:1;overflow-y:auto;overflow-x:hidden;padding:14px 18px 40px;scrollbar-color:#3a4270 transparent;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .5s cubic-bezier(.2,.8,.2,1)}
+.wrap.in{opacity:1;transform:none}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1280px;margin:0 auto 14px}
+.left{display:flex;align-items:center;gap:10px;min-width:0;flex:1 1 auto}
+#back{flex:none;display:flex;align-items:center;justify-content:center;width:34px;height:34px;padding:0;border:1px solid var(--line);border-radius:7px;background:#0e1226ef;color:var(--fg);font:inherit;font-size:18px;line-height:1;cursor:pointer;transition:background .18s,border-color .18s}
+#back:hover,#back:focus-visible{background:#151a32;border-color:var(--acc);outline:none}
+h1{margin:0;font-size:clamp(18px,2.4vw,28px);line-height:1.2;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tools{display:flex;align-items:center;gap:8px;flex:none}
+.hd .vc-lang{position:static}
+.srch{position:relative;display:block}
+.srch svg{position:absolute;left:11px;top:50%;width:16px;height:16px;margin-top:-8px;fill:none;stroke:var(--mut);stroke-width:2;stroke-linecap:round;pointer-events:none}
+#q{width:min(260px,28vw);height:40px;padding:0 12px 0 34px;border:1px solid var(--line);border-radius:11px;background:#0e1226ef;color:var(--fg);font:inherit;outline:none}
+#q:focus{border-color:var(--acc)}
+.ib{width:40px;height:40px;padding:0;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:11px;background:#0e1226ef;color:var(--fg);cursor:pointer;transition:border-color .18s,transform .18s}
+.ib:hover,.ib:focus-visible{border-color:var(--acc);transform:scale(1.05);outline:none}
+.ib svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.ib img{width:30px;height:30px;object-fit:contain}
+#menu-wrap{position:relative;flex:none}
+#menu-toggle{position:relative;display:flex;align-items:center;justify-content:center;width:34px;height:34px;border:1px solid transparent;border-radius:7px;background:transparent;color:#eef1ff;cursor:pointer;padding:0;transition:background .18s ease,border-color .18s ease}
+#menu-toggle:hover,#menu-toggle[aria-expanded="true"]{background:#151a32;border-color:#343b60}
+#menu-toggle .menu-lines{position:relative;width:19px;height:18px;display:block}
+#menu-toggle .menu-line{position:absolute;left:1px;width:17px;height:1.7px;border-radius:2px;background:currentColor;transform-origin:center;transition:top .22s ease,transform .22s cubic-bezier(.2,.8,.2,1),opacity .14s ease}
+#menu-toggle .menu-line:nth-child(1){top:3px}
+#menu-toggle .menu-line:nth-child(2){top:8px}
+#menu-toggle .menu-line:nth-child(3){top:13px}
+#menu-toggle[aria-expanded="true"] .menu-line:nth-child(1){top:8px;transform:rotate(45deg)}
+#menu-toggle[aria-expanded="true"] .menu-line:nth-child(2){opacity:0;transform:scaleX(.3)}
+#menu-toggle[aria-expanded="true"] .menu-line:nth-child(3){top:8px;transform:rotate(-45deg)}
+#page-menu{position:absolute;top:42px;left:0;min-width:210px;padding:5px;border:1px solid #232846;border-radius:9px;background:#0b0e1ff5;box-shadow:0 12px 30px #0008;backdrop-filter:blur(12px);opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(.98);transform-origin:top left;transition:opacity .17s ease,transform .22s cubic-bezier(.2,.8,.2,1),visibility 0s linear .22s;z-index:5}
+#page-menu.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1);transition:opacity .17s ease,transform .22s cubic-bezier(.2,.8,.2,1),visibility 0s}
+#page-menu a{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 11px;border-radius:6px;color:#eef1ff;text-decoration:none;font:inherit;white-space:nowrap;cursor:pointer}
+#page-menu a:hover,#page-menu a:focus{background:#1a2040;outline:none}
+#page-menu .map-icon{width:18px;height:18px;flex:none;color:#a9b9e9}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;max-width:1280px;margin:0 auto}
+.card{border:1px solid var(--line);border-radius:14px;background:var(--card);backdrop-filter:blur(6px);padding:16px 18px;min-width:0}
+.card h2{margin:0 0 10px;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--acc);font-weight:700}
+.colL{grid-column:span 5;display:flex;flex-direction:column;gap:14px;min-width:0}
+.media{position:relative;flex:none;aspect-ratio:1/1;padding:0;overflow:hidden}
+.stack{grid-column:span 7;padding:0}
+.sk{grid-column:span 5}
+.hm{grid-column:span 7}
+.blk{padding:16px 18px}
+.blk+.blk{border-top:1px solid var(--line)}
+.tg{position:absolute;left:12px;top:12px;z-index:2;display:flex;border:1px solid var(--line);border-radius:9px;background:#0e1226ef;overflow:hidden}
+.tg .pill{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:8px;background:#2a3470;transition:left .38s cubic-bezier(.2,.8,.2,1),width .38s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.tg button{position:relative;border:0;background:none;color:var(--mut);padding:7px 13px;font:inherit;font-size:13px;cursor:pointer;transition:color .25s}
+.tg button.on{color:var(--fg)}
+#m3,#ph{position:absolute;inset:0;width:100%;height:100%}
+#m3{cursor:grab;touch-action:none}
+#m3:active{cursor:grabbing}
+#ph{object-fit:contain;background:#05060f;display:none}
+.media.foto #ph{display:block}
+.media.foto #m3{display:none}
+.cap{position:absolute;left:0;right:0;bottom:0;margin:0;padding:22px 14px 10px;font-size:12px;color:#c9d1f2;background:linear-gradient(transparent,#05060fcc);pointer-events:none}
+#desc p{margin:0 0 10px;color:#d6dcf7}
+#facts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px 16px;margin:14px 0 0}
+#facts div{border-left:2px solid #343b60;padding-left:10px}
+#facts dt{font-size:12px;color:var(--mut)}
+#facts dd{margin:0;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:13px;background:#10163a;color:#dfe5ff}
+ul.l{margin:0;padding:0;list-style:none}
+#trivia li{position:relative;padding:2px 0 8px 22px;color:#d6dcf7}
+#trivia li::before{content:"";position:absolute;left:3px;top:.62em;width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+#others li{padding:7px 0;border-bottom:1px solid #232846}
+#others li:last-child{border:0}
+#others b{display:block;font-weight:600}
+#others small{color:var(--mut)}
+#others button{all:unset;cursor:pointer;display:block;width:100%}
+#others button b{color:var(--acc)}
+#others button:hover b,#others button:focus-visible b{text-decoration:underline}
+#sky svg{display:block;width:100%;max-height:300px}
+.note{margin:10px 0 0;font-size:12.5px;color:var(--mut)}
+.heat{display:grid;grid-template-columns:34px repeat(14,minmax(0,1fr));gap:2px;font-size:10.5px;color:var(--mut)}
+.heat .h{text-align:center}
+.heat .m{display:flex;align-items:center;white-space:nowrap}
+.heat .m small{margin-left:5px;opacity:.65;font-size:10px}
+.heat i{display:block;height:15px;border-radius:3px;background:#0e1226}
+.heat i.a1{background:#2a3470}.heat i.a2{background:#3f5fb8}.heat i.a3{background:#6fa8ff}
+.heat i.x{background:repeating-linear-gradient(135deg,#171c38 0 3px,#10142b 3px 6px)}
+.lg{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:11.5px;color:var(--mut)}
+.lg span{display:inline-flex;align-items:center;gap:5px}
+.lg i{width:12px;height:12px;border-radius:3px;display:inline-block}
+@media(max-width:900px){
+  .colL{display:contents}
+  .media,.stack,.sk,.hm,#others-card{grid-column:1/-1}
+  .media{order:1}.stack{order:2}#others-card{order:3}.sk{order:4}.hm{order:5}
+  #q{width:min(180px,34vw)}
+}
+@media(max-width:600px){
+  .wrap{padding:10px 12px 34px}
+  .hd{flex-direction:column;align-items:stretch}
+  .left{width:100%}
+  .tools{justify-content:space-between;width:100%}
+  .srch{flex:1}
+  #q{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.wrap{transition:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="wrap" id="wrap">
+  <header class="hd">
+    <div class="left">
+      <div id="menu-wrap">
+        <button id="menu-toggle" type="button" aria-label="Abrir menú de páginas" aria-expanded="false" aria-controls="page-menu"><span class="menu-lines" aria-hidden="true"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></span></button>
+        <nav id="page-menu" aria-label="Páginas del atlas">
+          <a data-go="principal"><span>Principal</span><svg class="home-icon map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v12h14V9M9 21v-7h6v7"/></svg></a>
+          <a data-go="atlas"><span>Atlas</span><svg class="map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg></a>
+          <a data-go="guide"><span>Guía Astronómica</span><svg class="map-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></a>
+        </nav>
+      </div>
+      <button id="back" type="button" aria-label="Volver al atlas">&larr;</button>
+      <h1 id="name"></h1>
+    </div>
+    <div class="tools" id="tools">
+      <label class="srch"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><input id="q" type="search" placeholder="Buscar en el atlas..." autocomplete="off" aria-label="Buscar en el atlas"></label>
+      <button class="ib" id="logo" type="button" aria-label="Vero Cosmos"><img src="favicon.png" alt=""></button>
+    </div>
+  </header>
+  <main class="grid">
+    <div class="colL">
+    <section class="card media" id="media" aria-label="Modelo 3D y foto">
+      <div class="tg" id="tg"><span class="pill" id="pill"></span><button type="button" data-m="3d" class="on">Modelo 3D</button><button type="button" data-m="foto">Foto</button></div>
+      <canvas id="m3"></canvas>
+      <img id="ph" alt="">
+      <p class="cap" id="cap"></p>
+    </section>
+    <section class="card" id="others-card"><h2>Otros objetos destacados</h2><ul class="l" id="others"></ul></section>
+    </div>
+    <section class="card stack">
+      <div class="blk"><h2>Descripción</h2><div id="desc"></div><dl id="facts"></dl></div>
+      <div class="blk"><h2>Categorías</h2><div id="cats" class="chips"></div></div>
+      <div class="blk"><h2>Trivia</h2><ul class="l" id="trivia"></ul></div>
+    </section>
+    <section class="card sk"><h2>Ubicación celeste</h2><div id="sky"></div><p class="note" id="skytxt"></p></section>
+    <section class="card hm"><h2>Mejores días y horas para observarlo</h2><div id="heat"></div><div class="lg" id="lg"></div><p class="note" id="besttxt"></p></section>
+  </main>
+</div>
+<script src="vc-i18n.js?v=21"></script>
+<script>
+const $=id=>document.getElementById(id);
+const slug=decodeURIComponent(location.hash.slice(1));
+const post=m=>{try{parent.postMessage(m,'*')}catch(e){}};
+const T=s=>window.vcI18n?vcI18n.t(s):s;
+const pageUrl=s=>new URL(('../'+s.split('/').map(encodeURIComponent).join('/')).replace(/index$/,''),location.href).href;
+const OBS={name:'Sevilla',lat:37.39,lon:-5.98,tz:'Europe/Madrid'};
+let data=null;
+
+/* ---------- fondo de estrellas ---------- */
+(function(){
+  const cv=$('bg'),c=cv.getContext('2d');
+  function draw(){
+    const w=cv.width=innerWidth,h=cv.height=innerHeight;
+    let s=11;const r=()=>(s=(s*16807)%2147483647)/2147483647;
+    c.clearRect(0,0,w,h);
+    for(let i=0;i<Math.round(w*h/6500);i++){c.globalAlpha=.25+r()*.65;c.fillStyle='#dce5ff';c.beginPath();c.arc(r()*w,r()*h,.4+r()*1.1,0,6.283);c.fill()}
+  }
+  draw();addEventListener('resize',draw);
+})();
+
+/* ---------- cabecera ---------- */
+$('back').onclick=()=>post({vc:'close'});
+$('logo').onclick=()=>post({vc:'go',page:'principal'});
+const mt=$('menu-toggle'),pm=$('page-menu');
+function menuOpen(o){pm.classList.toggle('open',o);mt.setAttribute('aria-expanded',String(o));mt.setAttribute('aria-label',o?'Cerrar menú de páginas':'Abrir menú de páginas')}
+mt.addEventListener('click',()=>menuOpen(!pm.classList.contains('open')));
+document.addEventListener('pointerdown',e=>{if(!$('menu-wrap').contains(e.target))menuOpen(false)});
+pm.addEventListener('click',e=>{const a=e.target.closest('a[data-go]');if(a){menuOpen(false);post({vc:'go',page:a.dataset.go})}});
+$('q').addEventListener('keydown',e=>{if(e.key==='Enter'&&$('q').value.trim())post({vc:'search',q:$('q').value.trim()})});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(pm.classList.contains('open'))menuOpen(false);else post({vc:'close'})});
+window.addEventListener('message',e=>{if(e.data&&e.data.vc==='focus')try{$('wrap').focus()}catch(x){}});
+if(window.vcI18n)vcI18n.mount($('tools'));
+$('tools').insertBefore(document.querySelector('.vc-lang'),$('logo'));
+
+/* ---------- datos ---------- */
+async function pageInfo(){
+  try{
+    const u=pageUrl(slug),doc=new DOMParser().parseFromString(await(await fetch(u)).text(),'text/html');
+    const art=doc.querySelector('article')||doc.body;
+    const noLinks=x=>{const c=x.cloneNode(true);c.querySelectorAll('a').forEach(a=>a.remove());return c.textContent.trim()};
+    const md=((doc.querySelector('meta[name="description"]')||{}).content||'').trim();
+    const ps=[...art.querySelectorAll('p')].filter(x=>noLinks(x).length>20).map(x=>x.textContent.trim()).filter(x=>x!==md);
+    const imgs=[...art.querySelectorAll('img')].map(i=>{const s=i.getAttribute('src')||'';const m=decodeURIComponent(s).match(/\d{4}-\d{2}-\d{2}/);return{s,d:m?m[0]:''}}).filter(x=>x.s).sort((a,b)=>b.d.localeCompare(a.d));
+    const b=imgs[0];
+    return{paras:ps.length?ps:(md?[md]:[]),img:b?new URL(b.s,u).href:'',date:b?b.d:''};
+  }catch(e){return{paras:[],img:'',date:''}}
+}
+function fill(info){
+  $('name').textContent=data.name;document.title=data.name+' · Vero Cosmos';
+  $('desc').innerHTML='';info.paras.forEach(t=>{const p=document.createElement('p');p.textContent=t;$('desc').append(p)});
+  $('facts').innerHTML='';(data.facts||[]).forEach(([k,v])=>{const d=document.createElement('div'),a=document.createElement('dt'),b=document.createElement('dd');a.textContent=k;b.textContent=dyn(v);d.append(a,b);$('facts').append(d)});
+  $('cats').innerHTML='';(data.cats||[]).forEach(t=>{const s=document.createElement('span');s.textContent=t;$('cats').append(s)});
+  $('trivia').innerHTML='';(data.trivia||[]).forEach(t=>{const l=document.createElement('li');l.textContent=t;$('trivia').append(l)});
+  $('others').innerHTML='';(data.others||[]).forEach(o=>{
+    const l=document.createElement('li'),b=document.createElement('b'),s=document.createElement('small');b.textContent=o.n;s.textContent=o.d;
+    if(o.s){const btn=document.createElement('button');btn.type='button';btn.append(b,s);btn.onclick=()=>post({vc:'open',s:o.s});l.append(btn)}else l.append(b,s);
+    $('others').append(l);
+  });
+  const ph=$('ph');
+  if(info.img){ph.src=info.img;ph.alt=data.name;
+    if(info.date)capFoto=T('Última foto')+': '+info.date.split('-').reverse().join('/');
+  }
+  if(!data.model){setMode('foto');$('tg').style.display='none'}
+  setMode(data.model?'3d':'foto');
+  if(!info.img&&data.model)$('tg').querySelector('[data-m="foto"]').style.display='none';
+  sky();heat();
+}
+
+/* ---------- 3D / foto ---------- */
+let mode='3d';
+let capFoto='';
+function movePill(){
+  const on=$('tg').querySelector('button.on'),p=$('pill');if(!on)return;
+  p.style.left=on.offsetLeft+'px';p.style.width=on.offsetWidth+'px';
+}
+function setMode(m,animate){
+  const prev=mode;mode=m;
+  $('cap').textContent=m==='foto'?capFoto:T('Representación artística: arrastra para girarla');
+  $('media').classList.toggle('foto',m==='foto');
+  $('tg').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));
+  movePill();
+  if(animate&&prev!==m&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+    /* lo nuevo sale desde el centro hacia fuera */
+    const el=m==='foto'?$('ph'):$('m3');
+    el.animate([{clipPath:'circle(0% at 50% 50%)',transform:'scale(.6)',opacity:0},{clipPath:'circle(75% at 50% 50%)',transform:'scale(1)',opacity:1}],{duration:650,easing:'cubic-bezier(.2,.8,.2,1)'});
+    $('cap').animate([{opacity:0},{opacity:1}],{duration:500,delay:150,fill:'backwards'});
+  }
+}
+$('tg').addEventListener('click',e=>{const b=e.target.closest('button[data-m]');if(b)setMode(b.dataset.m,true)});
+window.addEventListener('resize',movePill);window.addEventListener('vc-lang',()=>setTimeout(movePill,60));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(movePill);
+
+/* ===== Modelos 3D (representaciones artísticas, no medidas) ===== */
+const RAD=Math.PI/180;
+const mkRand=seed=>{let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647};
+const V={ry:.5,rx:-.35,drag:false,auto:true,speed:.0035,sway:false};
+(function(){
+  const cv=$('m3');let lx=0,ly=0;
+  cv.addEventListener('pointerdown',e=>{V.drag=true;lx=e.clientX;ly=e.clientY;cv.setPointerCapture(e.pointerId)});
+  cv.addEventListener('pointermove',e=>{if(!V.drag)return;V.ry+=(e.clientX-lx)*.008;V.rx=Math.max(-1.55,Math.min(1.55,V.rx+(e.clientY-ly)*.008));lx=e.clientX;ly=e.clientY});
+  const up=()=>{V.drag=false};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);
+})();
+function run(render){
+  const cv=$('m3'),c=cv.getContext('2d');
+  (function f(){
+    if(mode==='3d'&&cv.clientWidth){
+      const k=devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;
+      if(cv.width!==Math.round(w*k)||cv.height!==Math.round(h*k)){cv.width=Math.round(w*k);cv.height=Math.round(h*k)}
+      c.setTransform(k,0,0,k,0,0);c.globalCompositeOperation='source-over';c.fillStyle='#05060f';c.fillRect(0,0,w,h);
+      render(c,w,h);
+      if(V.auto)V.ry+=V.speed;
+    }
+    requestAnimationFrame(f);
+  })();
+}
+/* nubes de puntos: nebulosas, cúmulo globular, galaxia */
+function pointRender(P){
+  return(c,w,h)=>{
+    c.globalCompositeOperation='lighter';
+    const sc=Math.min(w,h)*.3,cx=w/2,cy=h/2+10,cyy=Math.cos(V.ry),syy=Math.sin(V.ry),cxx=Math.cos(V.rx),sxx=Math.sin(V.rx),pts=[];
+    for(const p of P){
+      const x=p.x*cyy+p.z*syy;let z=-p.x*syy+p.z*cyy;const y=p.y*cxx-z*sxx;z=p.y*sxx+z*cxx;
+      const f=2.6/Math.max(.7,2.6-z*.9);pts.push([cx+x*sc*f,cy+y*sc*f,z,p,f]);
+    }
+    pts.sort((a,b)=>a[2]-b[2]);
+    for(const[px,py,,p,f]of pts){
+      const rr=p.sz*f*(sc/150+.5);
+      if(p.star){const gr=c.createRadialGradient(px,py,0,px,py,rr*5);gr.addColorStop(0,'rgba(255,255,255,.95)');gr.addColorStop(.25,'rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+',.45)');gr.addColorStop(1,'rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+',0)');c.fillStyle=gr;c.beginPath();c.arc(px,py,rr*5,0,6.283);c.fill()}
+      else{c.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+(p.a*(.55+.45*f/1.5)).toFixed(3)+')';c.beginPath();c.arc(px,py,rr,0,6.283);c.fill()}
+    }
+  };
+}
+function bgStars(P,n,seed){const r=mkRand(seed);for(let i=0;i<n;i++)P.push({x:(r()-.5)*3.2,y:(r()-.5)*3.2,z:(r()-.5)*3.2,col:[220,230,255],a:.5,sz:.8})}
+function buildNebula(pal){
+  const r=mkRand(5),g=()=>(r()+r()+r()+r()-2)*.9,P=[];
+  const C=pal==='flame'?{core:[255,226,150],mid:[255,150,60],out:[235,70,45],rim:[170,40,50]}:{core:[255,244,205],mid:[130,215,255],out:[255,92,150],rim:[190,70,130]};
+  for(let i=0;i<3200;i++){
+    const u=Math.pow(r(),.7),th=r()*6.283,rad=u;
+    let x=Math.cos(th)*rad*(1.25+.25*Math.cos(2*th)),y=Math.sin(th)*rad*.82,z=-(rad*rad)*.55+g()*.08*(1+rad);
+    x+=g()*.07;y+=g()*.07;
+    if(i%5===0){const a=r()*6.283,q=.5+r()*.5;x=Math.cos(a)*q*1.2+g()*.03;y=Math.sin(a)*q*.8+g()*.03;z=-q*q*.55+g()*.05}
+    if(pal==='flame'){x*=.8;y*=1.15}
+    const d=Math.hypot(x/1.3,y/.85);let col,a;
+    if(d<.16){col=C.core;a=.55}else if(d<.42){col=C.mid;a=.42}else if(d<.72){col=C.out;a=.32}else{col=C.rim;a=.2}
+    P.push({x,y,z,col,a,sz:.9+r()*1.8});
+  }
+  if(pal==='flame')P.push({x:-.05,y:-.55,z:.2,col:[190,215,255],a:1,sz:5,star:true});
+  else[[.05,.02,.1],[-.04,.05,.12],[-.02,-.05,.09],[.06,-.04,.13]].forEach(([x,y,z])=>P.push({x,y,z,col:[235,245,255],a:1,sz:3.2,star:true}));
+  bgStars(P,90,9);return P;
+}
+function buildGlobular(){
+  const r=mkRand(21),P=[];
+  for(let i=0;i<5200;i++){
+    const u=Math.max(1e-4,r()),rad=Math.min(2.4,.28/Math.sqrt(Math.pow(u,-2/3)-1)),ct=r()*2-1,ph=r()*6.283,st=Math.sqrt(1-ct*ct);
+    const q=r();let col,a=.5+r()*.4;
+    if(q<.05){col=[255,150,80]}else if(q<.08){col=[150,190,255]}else{col=[255,236,196]}
+    P.push({x:rad*st*Math.cos(ph),y:rad*ct*.88,z:rad*st*Math.sin(ph),col,a:Math.min(1,a*(rad<.3?.55:.9)),sz:.7+r()*1.3});
+  }
+  bgStars(P,70,3);return P;
+}
+function buildGalaxy(){
+  const r=mkRand(33),g=()=>(r()+r()+r()+r()-2)*.9,P=[];
+  for(let i=0;i<2600;i++){ // bulbo
+    const d=Math.abs(g())*.28,ct=r()*2-1,ph=r()*6.283,st=Math.sqrt(1-ct*ct);
+    P.push({x:d*st*Math.cos(ph),y:d*ct*.55,z:d*st*Math.sin(ph),col:r()<.22?[255,150,190]:[255,226,170],a:.55,sz:.8+r()*1.4});
+  }
+  for(let i=0;i<4200;i++){ // disco con dos brazos
+    const rad=Math.pow(r(),.6)*1.3,arm=(i%2)*Math.PI,a=Math.log(1+rad*3)*2.1+arm+g()*.32;
+    const thick=.07*Math.exp(-rad*.7);
+    P.push({x:Math.cos(a)*rad+g()*.05,y:g()*thick*3,z:Math.sin(a)*rad+g()*.05,col:rad<.4?[255,205,225]:[170,200,255],a:(.12+.25*Math.exp(-rad*.8))*.7,sz:.7+r()*1.1});
+  }
+  bgStars(P,70,4);return P;
+}
+/* ---- esferas con textura procedural: Luna, Saturno y Sol ---- */
+function h3(a,b,c){let n=Math.imul(a,374761393)^Math.imul(b,668265263)^Math.imul(c,1274126177);n=Math.imul(n^(n>>>13),1274126177);return((n^(n>>>16))>>>0)/4294967296}
+function vn(x,y,z){
+  const ix=Math.floor(x),iy=Math.floor(y),iz=Math.floor(z),fx=x-ix,fy=y-iy,fz=z-iz,sx=fx*fx*(3-2*fx),sy=fy*fy*(3-2*fy),sz=fz*fz*(3-2*fz);
+  const l=(a,b,t)=>a+(b-a)*t;
+  return l(l(l(h3(ix,iy,iz),h3(ix+1,iy,iz),sx),l(h3(ix,iy+1,iz),h3(ix+1,iy+1,iz),sx),sy),l(l(h3(ix,iy,iz+1),h3(ix+1,iy,iz+1),sx),l(h3(ix,iy+1,iz+1),h3(ix+1,iy+1,iz+1),sx),sy),sz);
+}
+function fbm(x,y,z,o){let s=0,a=.5,f=1;for(let i=0;i<o;i++){s+=a*vn(x*f,y*f,z*f);a*=.5;f*=2}return s}
+const TW=384,TH=192;
+function makeTex(fn){
+  const t=new Uint8ClampedArray(TW*TH*3);
+  for(let j=0;j<TH;j++){const lat=(.5-(j+.5)/TH)*Math.PI,cl=Math.cos(lat),y=Math.sin(lat);
+    for(let i=0;i<TW;i++){const lon=((i+.5)/TW-.5)*2*Math.PI,x=cl*Math.sin(lon),z=cl*Math.cos(lon),c=fn(x,y,z),o=(j*TW+i)*3;t[o]=c[0];t[o+1]=c[1];t[o+2]=c[2]}}
+  return t;
+}
+function moonTex(){
+  const r=mkRand(77),cr=[];
+  for(let i=0;i<220;i++){const ct=r()*2-1,ph=r()*6.283,st=Math.sqrt(1-ct*ct),k=r();{const rr=.012+k*k*.07;cr.push([st*Math.sin(ph),ct,st*Math.cos(ph),rr,Math.cos(rr*1.25)])}}
+  return makeTex((x,y,z)=>{
+    let v=.62+(fbm(x*6,y*6,z*6,5)-.5)*.5;
+    const m=fbm(x*1.7+9,y*1.7,z*1.7,4),near=Math.max(0,z*.9+.1);
+    const mare=Math.max(0,Math.min(1,(m-.5)*7))*Math.min(1,near*1.6);
+    v*=1-mare*.42;
+    for(const q of cr){const dt=x*q[0]+y*q[1]+z*q[2];if(dt>q[4]){const d=Math.acos(Math.min(1,dt)),u=d/q[3];v+=u<1?-.07*(1-u):.09*(1-(u-1)/.25)}}
+    const k=Math.max(0,Math.min(255,v*255));return[k,k*.985,k*.95];
+  });
+}
+function saturnTex(){
+  return makeTex((x,y,z)=>{
+    const lat=Math.asin(y),b=Math.sin(lat*17+fbm(x*3,y*8,z*3,3)*3)*.5+.5,n=(fbm(x*5,y*14,z*5,4)-.5)*.35;
+    const v=.78+(b-.5)*.2+n;return[Math.min(255,226*v),Math.min(255,198*v),Math.min(255,150*v)];
+  });
+}
+function sunTex(){
+  const r=mkRand(5),sp=[];
+  for(let i=0;i<5;i++){const lat=(r()-.5)*.8,lon=r()*6.283;{const rr=.05+r()*.05;sp.push([Math.cos(lat)*Math.sin(lon),Math.sin(lat),Math.cos(lat)*Math.cos(lon),rr,Math.cos(rr)])}}
+  return makeTex((x,y,z)=>{
+    let v=.82+(fbm(x*28,y*28,z*28,3)-.5)*.34+(fbm(x*5,y*5,z*5,3)-.5)*.2;
+    for(const q of sp){const dt=x*q[0]+y*q[1]+z*q[2];if(dt>q[4]){const d=Math.acos(Math.min(1,dt));v*=.35+.65*d/q[3]}}
+    v=Math.max(0,Math.min(1.1,v));return[Math.min(255,255*v),Math.min(255,170*v+14),Math.min(255,60*v)];
+  });
+}
+function sphereRender(kind,L){
+  const SZ=240,off=document.createElement('canvas');off.width=off.height=SZ;
+  const oc=off.getContext('2d'),img=oc.createImageData(SZ,SZ),px=img.data;
+  const tex=kind==='moon'?moonTex():kind==='saturn'?saturnTex():sunTex();
+  const NX=new Float32Array(SZ*SZ),NY=new Float32Array(SZ*SZ),NZ=new Float32Array(SZ*SZ);
+  for(let j=0;j<SZ;j++)for(let i=0;i<SZ;i++){const x=(i+.5)/SZ*2-1,y=1-(j+.5)/SZ*2,q=x*x+y*y,o=j*SZ+i;if(q<1){NX[o]=x;NY[o]=y;NZ[o]=Math.sqrt(1-q)}else NZ[o]=-2}
+  let rings=null;
+  if(kind==='saturn'){
+    const r=mkRand(8);rings=[];
+    for(let i=0;i<22000;i++){
+      let rad=1.24+r()*1.05;if(rad>1.93&&rad<2.03)continue;
+      const a=r()*6.283,col=rad<1.52?[125,112,100]:rad<1.95?[232,208,164]:[202,182,150],al=rad<1.52?.18:rad<1.95?.55:.4;
+      rings.push({x:Math.cos(a)*rad,y:(r()-.5)*.01,z:Math.sin(a)*rad,col,al:al*(.55+r()*.45)*.8});
+    }
+  }
+  return(c,w,h)=>{
+    const ry=V.ry+(V.sway?Math.sin(performance.now()/2600)*.28:0),rx=V.rx,R=Math.min(w,h)*(kind==='saturn'?.2:.34),cx=w/2,cy=h/2;
+    const cyy=Math.cos(ry),syy=Math.sin(ry),cxx=Math.cos(rx),sxx=Math.sin(rx);
+    if(kind==='sun'){c.globalCompositeOperation='lighter';const gr=c.createRadialGradient(cx,cy,R*.9,cx,cy,R*2.3);gr.addColorStop(0,'rgba(255,170,60,.45)');gr.addColorStop(1,'rgba(255,140,40,0)');c.fillStyle=gr;c.fillRect(0,0,w,h);c.globalCompositeOperation='source-over'}
+    const ringPts=[];
+    if(rings){for(const p of rings){const x=p.x*cyy+p.z*syy;let z=-p.x*syy+p.z*cyy;const y=p.y*cxx-z*sxx;z=p.y*sxx+z*cxx;ringPts.push([x,y,z,p])}}
+    const drawRing=back=>{for(const[x,y,z,p]of ringPts){if((z<0)!==back)continue;c.fillStyle='rgba('+p.col[0]+','+p.col[1]+','+p.col[2]+','+p.al.toFixed(2)+')';c.fillRect(cx+x*R,cy-y*R,1.1,1.1)}};
+    if(rings)drawRing(true);
+    for(let o=0;o<SZ*SZ;o++){
+      const nz=NZ[o];const q=o*4;
+      if(nz<-1){px[q+3]=0;continue}
+      const x=NX[o],y=NY[o];
+      /* de la vista al objeto: primero Rx(-rx), luego Ry(-ry) */
+      const y1=y*cxx+nz*sxx,z1=-y*sxx+nz*cxx,x2=x*cyy-z1*syy,z2=x*syy+z1*cyy;
+      const lon=Math.atan2(x2,z2),lat=Math.asin(Math.max(-1,Math.min(1,y1)));
+      const u=Math.min(TW-1,Math.floor((lon/6.283185+.5)*TW)),v=Math.min(TH-1,Math.floor((.5-lat/3.141593)*TH)),t=(v*TW+u)*3;
+      let k;
+      if(kind==='sun')k=.38+.62*Math.pow(nz,.55);
+      else{const d=x*L[0]+y*L[1]+nz*L[2];k=(kind==='moon'?.03:.06)+Math.max(0,Math.min(1,d*1.25))*(kind==='moon'?1.05:.95)}
+      px[q]=tex[t]*k;px[q+1]=tex[t+1]*k;px[q+2]=tex[t+2]*k;px[q+3]=255;
+    }
+    oc.putImageData(img,0,0);c.imageSmoothingEnabled=true;c.drawImage(off,cx-R,cy-R,2*R,2*R);
+    if(rings)drawRing(false);
+  };
+}
+
+/* ===== Efemérides sencillas (Sol, Luna, Saturno) ===== */
+function jd(ms){return ms/86400000+2440587.5}
+const Tc=t=>(jd(t)-2451545)/36525;
+function eclToEq(lon,lat,T){const e=(23.439291-.0130042*T)*RAD,l=lon*RAD,b=lat*RAD,x=Math.cos(b)*Math.cos(l),y=Math.cos(b)*Math.sin(l)*Math.cos(e)-Math.sin(b)*Math.sin(e),z=Math.cos(b)*Math.sin(l)*Math.sin(e)+Math.sin(b)*Math.cos(e);return{ra:((Math.atan2(y,x)/RAD)+360)%360,dec:Math.asin(z)/RAD}}
+function sunPos(t){const n=jd(t)-2451545,L=280.460+.9856474*n,g=(357.528+.9856003*n)*RAD,lon=((L+1.915*Math.sin(g)+.02*Math.sin(2*g))%360+360)%360;return{lon,lat:0,...eclToEq(lon,0,n/36525)}}
+function moonPos(t){
+  const T=Tc(t),d=x=>x*RAD,Lp=218.3164477+481267.88123421*T,D=297.8501921+445267.1114034*T,M=357.5291092+35999.0502909*T,Mp=134.9633964+477198.8675055*T,F=93.272095+483202.0175233*T;
+  const lon=((Lp+6.289*Math.sin(d(Mp))+1.274*Math.sin(d(2*D-Mp))+.658*Math.sin(d(2*D))+.214*Math.sin(d(2*Mp))-.186*Math.sin(d(M))-.114*Math.sin(d(2*F)))%360+360)%360;
+  const lat=5.128*Math.sin(d(F))+.281*Math.sin(d(Mp+F))+.278*Math.sin(d(Mp-F))+.173*Math.sin(d(2*D-F));
+  return{lon,lat,...eclToEq(lon,lat,T)};
+}
+const EL={earth:[1.00000261,.00000562,.01671123,-.00004392,-.00001531,-.01294668,100.46457166,35999.37244981,102.93768193,.32327364,0,0],
+  saturn:[9.53707032,-.00301069,.0541506,-.00036762,2.48446,.00193609,49.94432,1222.49362201,92.43194,-.41897216,113.71504,-.28867794]};
+function helio(k,T){
+  const q=EL[k],a=q[0]+q[1]*T,e=q[2]+q[3]*T,I=(q[4]+q[5]*T)*RAD,L=q[6]+q[7]*T,w=q[8]+q[9]*T,Od=q[10]+q[11]*T,O=Od*RAD;
+  const M=(((L-w)%360)+360)%360*RAD;let E=M+e*Math.sin(M);for(let i=0;i<10;i++)E-=(E-e*Math.sin(E)-M)/(1-e*Math.cos(E));
+  const xp=a*(Math.cos(E)-e),yp=a*Math.sqrt(1-e*e)*Math.sin(E),om=(w-Od)*RAD,co=Math.cos(om),so=Math.sin(om),cO=Math.cos(O),sO=Math.sin(O),cI=Math.cos(I),sI=Math.sin(I);
+  return[(co*cO-so*sO*cI)*xp+(-so*cO-co*sO*cI)*yp,(co*sO+so*cO*cI)*xp+(-so*sO+co*cO*cI)*yp,so*sI*xp+co*sI*yp];
+}
+function saturnPos(t){const T=Tc(t),pe=helio('earth',T),ps=helio('saturn',T),v=[ps[0]-pe[0],ps[1]-pe[1],ps[2]-pe[2]];const lon=((Math.atan2(v[1],v[0])/RAD)+360)%360,lat=Math.atan2(v[2],Math.hypot(v[0],v[1]))/RAD;return{lon,lat,...eclToEq(lon,lat,0)}}
+function bodyPos(t){
+  if(data.body==='sun')return sunPos(t);
+  if(data.body==='moon')return moonPos(t);
+  if(data.body==='saturn')return saturnPos(t);
+  return{ra:data.sky.ra,dec:data.sky.dec};
+}
+function moonPhase(t){
+  const m=moonPos(t),s=sunPos(t),el=(((m.lon-s.lon)%360)+360)%360,psi=el>180?360-el:el;
+  return{illum:(1-Math.cos(psi*RAD))/2,waxing:el<180,psi:psi*RAD};
+}
+const ECL=[['Aries',29],['Tauro',53],['Géminis',90],['Cáncer',118],['Leo',138],['Virgo',174],['Libra',218],['Escorpio',241],['Ofiuco',248],['Sagitario',266],['Capricornio',300],['Acuario',328],['Piscis',352]];
+function conName(lon){let n='Piscis';for(const[nm,st]of ECL)if(lon>=st)n=nm;return n}
+function phaseName(p){
+  if(p.illum<.03)return T('nueva');if(p.illum>.97)return T('llena');
+  return Math.round(p.illum*100)+' % · '+T(p.waxing?'creciente':'menguante');
+}
+/* texto de un dato que cambia con la fecha */
+function dyn(v){
+  if(v==='@const')return T(conName(bodyPos(Date.now()).lon))+' ('+T('aprox.')+')';
+  if(v==='@phase')return phaseName(moonPhase(Date.now()));
+  return v;
+}
+
+/* ---------- ubicación celeste ---------- */
+function sky(){
+  if(data.body){wheel();return}
+  const d=data.sky;if(!d){$('sky').parentNode.style.display='none';return}
+  const wrapD=x=>((x+540)%360)-180,cd=Math.cos(d.dec*Math.PI/180),px=ra=>-(wrapD(ra-d.ra)*cd),py=de=>-(de-d.dec);
+  const xs=d.stars.map(s=>px(s[1])).concat(0),ys=d.stars.map(s=>py(s[2])).concat(0);
+  const x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  const SC=Math.min(250/Math.max(1,x1-x0),250/Math.max(1,y1-y0)),ox=-(x0+x1)/2*SC,oy=-(y0+y1)/2*SC;
+  const X=ra=>px(ra)*SC+ox,Y=de=>py(de)*SC+oy;
+  let out='<svg viewBox="-150 -150 300 300" role="img" aria-label="'+T('Ubicación celeste')+'">';
+  out+='<defs><radialGradient id="mg"><stop offset="0" stop-color="#ff7aa8" stop-opacity=".9"/><stop offset="1" stop-color="#ff7aa8" stop-opacity="0"/></radialGradient></defs>';
+  (d.lines||[]).forEach(([a,b])=>{const A=d.stars[a],B=d.stars[b];out+='<line x1="'+X(A[1]).toFixed(1)+'" y1="'+Y(A[2]).toFixed(1)+'" x2="'+X(B[1]).toFixed(1)+'" y2="'+Y(B[2]).toFixed(1)+'" stroke="#4f5c9c" stroke-width="1.2"/>'});
+  d.stars.forEach(([n,ra,de,m])=>{const x=X(ra),y=Y(de),rad=Math.max(1.6,4.6-m*.9);out+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="'+rad.toFixed(1)+'" fill="#e6ecff"/><text x="'+(x+rad+4).toFixed(1)+'" y="'+(y+4).toFixed(1)+'" fill="#8f98c0" font-size="10" font-family="system-ui" data-no-i18n>'+n+'</text>'});
+  const mx0=X(d.ra).toFixed(1),my0=Y(d.dec).toFixed(1);
+  out+='<circle cx="'+mx0+'" cy="'+my0+'" r="22" fill="url(#mg)"/><circle cx="'+mx0+'" cy="'+my0+'" r="7" fill="none" stroke="#ff7aa8" stroke-width="1.8"/><text x="'+(X(d.ra)+12).toFixed(1)+'" y="'+(Y(d.dec)-10).toFixed(1)+'" fill="#ffb3cc" font-size="11" font-weight="700" font-family="system-ui" data-no-i18n>'+(data.name.split(' ')[0])+'</text></svg>';
+  $('sky').innerHTML=out;
+  const f=Object.fromEntries((data.facts||[]).map(x=>[x[0],x[1]]));
+  $('skytxt').textContent=[f['Constelación']&&(T('Constelación')+': '+T(f['Constelación'])),f['Ascensión recta']&&(T('Ascensión recta')+' '+f['Ascensión recta']),f['Declinación']&&(T('Declinación')+' '+f['Declinación'])].filter(Boolean).join(' · ');
+}
+/* rueda de la eclíptica: por donde se mueven el Sol, la Luna y los planetas */
+function wheel(){
+  const pos=(lon,r)=>[(r*Math.cos(lon*RAD)).toFixed(1),(-r*Math.sin(lon*RAD)).toFixed(1)];
+  const now=Date.now(),me=bodyPos(now),sun=sunPos(now);
+  let out='<svg viewBox="-160 -160 320 320" role="img" aria-label="'+T('Ubicación celeste')+'"><circle r="96" fill="none" stroke="#232846" stroke-width="22"/>';
+  ECL.forEach(([nm,st],i)=>{
+    const en=i<ECL.length-1?ECL[i+1][1]:ECL[0][1]+360,a=st,b=en,[x1,y1]=pos(a,96),[x2,y2]=pos(b,96),big=(b-a)>180?1:0;
+    const cur=conName(me.lon)===nm;
+    out+='<path d="M'+x1+' '+y1+' A96 96 0 '+big+' 0 '+x2+' '+y2+'" fill="none" stroke="'+(cur?'#4f6fd8':'#343b60')+'" stroke-width="'+(cur?22:20)+'"/>';
+    const[tx,ty]=pos((a+b)/2,128);
+    out+='<text x="'+tx+'" y="'+ty+'" fill="'+(cur?'#cfe0ff':'#8f98c0')+'" font-size="10" text-anchor="middle" dominant-baseline="middle" font-family="system-ui">'+T(nm)+'</text>';
+    const[bx,by]=pos(a,85),[cx2,cy2]=pos(a,107);out+='<line x1="'+bx+'" y1="'+by+'" x2="'+cx2+'" y2="'+cy2+'" stroke="#05060f" stroke-width="1.5"/>';
+  });
+  const col={sun:'#ffcf5c',moon:'#e8ecff',saturn:'#e6c892'}[data.body];
+  if(data.body!=='sun'){const[sx,sy]=pos(sun.lon,96);out+='<circle cx="'+sx+'" cy="'+sy+'" r="5" fill="#ffcf5c" opacity=".7"/>'}
+  const[mx,my]=pos(me.lon,96);
+  out+='<circle cx="'+mx+'" cy="'+my+'" r="15" fill="'+col+'" opacity=".25"/><circle cx="'+mx+'" cy="'+my+'" r="7" fill="'+col+'" stroke="#05060f" stroke-width="2"/>';
+  out+='<text x="0" y="-4" text-anchor="middle" fill="#cfd6ff" font-size="12" font-weight="700" font-family="system-ui">'+T('Hoy')+'</text><text x="0" y="12" text-anchor="middle" fill="#8f98c0" font-size="10" font-family="system-ui">'+T(conName(me.lon))+'</text></svg>';
+  $('sky').innerHTML=out;
+  $('skytxt').textContent=T('Hoy está en')+' '+T(conName(me.lon))+' ('+T('aprox.')+'). '+T('Recorre la eclíptica, la franja del cielo por donde pasan el Sol, la Luna y los planetas.');
+}
+
+/* ---------- mejores días y horas ---------- */
+function altObj(ra,dec,t){
+  const gm=(280.46061837+360.98564736629*(jd(t)-2451545))%360,ha=(gm+OBS.lon-ra)*RAD;
+  return Math.asin(Math.sin(OBS.lat*RAD)*Math.sin(dec*RAD)+Math.cos(OBS.lat*RAD)*Math.cos(dec*RAD)*Math.cos(ha))/RAD;
+}
+function tzOff(ms){
+  try{const p=new Intl.DateTimeFormat('en-GB',{timeZone:OBS.tz,hourCycle:'h23',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'}).formatToParts(new Date(ms)).reduce((o,x)=>(o[x.type]=x.value,o),{});
+    return(Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute)-Math.floor(ms/60000)*60000)/60000}catch(e){return 60}
+}
+const MES=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+function fmtDM(t){const d=new Date(t+tzOff(t)*60000);return String(d.getUTCDate()).padStart(2,'0')+'/'+String(d.getUTCMonth()+1).padStart(2,'0')}
+function heat(){
+  const kind=data.body||'deep',Y=new Date().getFullYear();
+  const HRS=kind==='sun'?[5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]:[18,19,20,21,22,23,0,1,2,3,4,5,6,7];
+  const rows=[];
+  if(kind==='moon'){const t0=new Date();for(let i=0;i<16;i++){const t=Date.UTC(t0.getFullYear(),t0.getMonth(),t0.getDate()+i*2,12);rows.push({t,label:fmtDM(t),extra:Math.round(moonPhase(t).illum*100)+'%'})}}
+  else for(let m=0;m<12;m++)rows.push({t:Date.UTC(Y,m,15,12),label:T(MES[m]),extra:''});
+  const lw=kind==='moon'?'78px':'34px';
+  let html='<div></div>'+HRS.map(h=>'<div class="h">'+String(h).padStart(2,'0')+'</div>').join('');
+  const score=[];let maxAlt=-90;
+  rows.forEach(rw=>{
+    html+='<div class="m">'+rw.label+(rw.extra?'<small>'+rw.extra+'</small>':'')+'</div>';let good=0;
+    const dt=new Date(rw.t);
+    for(const h of HRS){
+      const base=Date.UTC(dt.getUTCFullYear(),dt.getUTCMonth(),dt.getUTCDate()+(h<12&&kind!=='sun'?1:0),h),t=base-tzOff(base)*60000,sunA=sunPos(t),sa=altObj(sunA.ra,sunA.dec,t);
+      const p=bodyPos(t),alt=altObj(p.ra,p.dec,t);let cls='',tip=rw.label+' '+String(h).padStart(2,'0')+':00';
+      if(kind==='sun'){
+        if(alt<0){cls='x';tip+=' · '+T('noche')}else{tip+=' · '+Math.round(alt)+'°';cls=alt<15?'a1':alt<40?'a2':'a3'}
+      }else if(sa>-12&&!(kind==='moon'&&sa<=-6)){cls='x';tip+=' · '+T('con luz')}
+      else{
+        tip+=' · '+Math.round(alt)+'°';
+        if(alt>=15&&alt<30)cls='a1';else if(alt>=30&&alt<40)cls='a2';else if(alt>=40)cls='a3';
+        const need=Math.min(30,.8*(90-Math.abs(OBS.lat-p.dec)));
+        if(sa<=(kind==='moon'?-12:-18)&&alt>=need)good++;
+        maxAlt=Math.max(maxAlt,alt);
+      }
+      html+='<i class="'+cls+'" title="'+tip+'"></i>';
+    }
+    score.push(good);
+  });
+  const hm=$('heat');hm.className='heat';hm.style.gridTemplateColumns=lw+' repeat('+HRS.length+',minmax(0,1fr))';hm.innerHTML=html;
+  const lgx=(c,t)=>'<span><i style="background:'+c+'"></i>'+t+'</span>';
+  const hatch='repeating-linear-gradient(135deg,#171c38 0 3px,#10142b 3px 6px)';
+  $('lg').innerHTML=kind==='sun'?lgx('#2a3470','<15°')+lgx('#3f5fb8','15–40°')+lgx('#6fa8ff','>40°')+lgx(hatch,T('noche'))
+    :lgx('#2a3470','15–30°')+lgx('#3f5fb8','30–40°')+lgx('#6fa8ff','>40°')+lgx(hatch,T('con luz'));
+  const loc=T('Calculado para')+' '+OBS.name+' ('+OBS.lat.toString().replace('.',',')+'° N). '+T('Altura sobre el horizonte según la hora local.');
+  let txt='';
+  if(kind==='sun')txt=T('Nunca mires al Sol directamente, ni con telescopio, cámara o prismáticos, sin un filtro solar certificado.')+' '+loc;
+  else if(kind==='moon'){
+    const t0=Date.now(),ill=[];for(let i=0;i<=124;i++){const t=t0+i*6*3600000;ill.push([t,moonPhase(t).illum])}
+    let full='',nw='';
+    for(let i=1;i<ill.length-1;i++){if(!full&&ill[i][1]>ill[i-1][1]&&ill[i][1]>=ill[i+1][1]&&ill[i][1]>.9)full=fmtDM(ill[i][0]);if(!nw&&ill[i][1]<ill[i-1][1]&&ill[i][1]<=ill[i+1][1]&&ill[i][1]<.1)nw=fmtDM(ill[i][0])}
+    txt=[full&&(T('Luna llena aprox.')+' '+full),nw&&(T('Luna nueva aprox.')+' '+nw)].filter(Boolean).join(' · ')+(full||nw?'. ':'')+T('Para ver los cráteres con relieve, mejor con fases crecientes o menguantes.')+' '+loc;
+  }else{
+    const mx=Math.max(...score);
+    if(mx>0){
+      const top=score.map((v,i)=>[v,i]).filter(x=>x[0]>=mx*.75).map(x=>x[1]).sort((a,b)=>(a+6)%12-(b+6)%12);
+      txt=T('Mejor época')+': '+top.map(i=>T(MES[i])).join(', ')+'. ';
+    }
+    const cul=90-Math.abs(OBS.lat-bodyPos(Date.now()).dec);
+    if(cul<35)txt+=T('Siempre queda bajo en el horizonte: culmina a')+' '+Math.round(cul)+'°. ';
+    txt+=loc;
+  }
+  $('besttxt').textContent=txt;
+}
+
+function startModel(){
+  const m=data.model,norm=v=>{const l=Math.hypot(...v);return v.map(x=>x/l)};
+  if(m==='nebula')run(pointRender(buildNebula(data.palette)));
+  else if(m==='globular'){V.rx=-.2;run(pointRender(buildGlobular()))}
+  else if(m==='galaxy'){V.rx=-.42;V.ry=.5;V.speed=.002;run(pointRender(buildGalaxy()))}
+  else if(m==='moon'){V.rx=0;V.ry=0;V.auto=false;V.sway=true;const ph=moonPhase(Date.now()),s=ph.waxing?1:-1;run(sphereRender('moon',[s*Math.sin(ph.psi),0,-Math.cos(ph.psi)]))}
+  else if(m==='saturn'){V.rx=-.45;V.ry=.4;V.speed=.004;run(sphereRender('saturn',norm([.6,.45,.7])))}
+  else if(m==='sun'){V.rx=0;V.ry=0;V.speed=.0016;run(sphereRender('sun',[0,0,1]))}
+}
+
+/* ---------- arranque ---------- */
+(async function(){
+  let all={};
+  try{all=await(await fetch('fichas.json?v=2')).json()}catch(e){}
+  data=all[slug];
+  if(!data){post({vc:'close'});return}
+  const info=await pageInfo();
+  fill(info);
+  startModel();
+  requestAnimationFrame(()=>$('wrap').classList.add('in'));
+  post({vc:'ready'});
+})();
+</script>
+</body>
+</html>

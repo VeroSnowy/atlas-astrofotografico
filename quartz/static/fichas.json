@@ -1,0 +1,718 @@
+{
+ "catálogos/messier/descripciones/m_42/m42---nebulosa-de-orión": {
+  "name": "M42 · Nebulosa de Orión",
+  "model": "nebula",
+  "facts": [
+   [
+    "Constelación",
+    "Orión"
+   ],
+   [
+    "Tipo",
+    "Nebulosa de emisión"
+   ],
+   [
+    "Magnitud aparente",
+    "+4,0"
+   ],
+   [
+    "Distancia",
+    "1270 ± 76 años luz"
+   ],
+   [
+    "Ascensión recta",
+    "5h 35m 17s"
+   ],
+   [
+    "Declinación",
+    "−5° 23′ 28″"
+   ]
+  ],
+  "cats": [
+   "Nebulosa de emisión",
+   "Región H II",
+   "Formación estelar",
+   "Messier 42 · NGC 1976",
+   "Constelación de Orión",
+   "Visible a simple vista"
+  ],
+  "trivia": [
+   "Se ve a simple vista: es la «estrella» borrosa del centro de la espada de Orión, justo debajo del cinturón.",
+   "En su corazón hay un grupo de estrellas jóvenes, el Trapecio, del que un telescopio pequeño ya deja ver las cuatro estrellas principales.",
+   "Es una de las regiones de formación estelar más cercanas a la Tierra, y en ella se han fotografiado discos donde nacen planetas.",
+   "Charles Messier la incluyó en su catálogo, publicado en 1771, aunque ya se conocía desde la invención del telescopio.",
+   "Es tan brillante que se fotografía con exposiciones cortas, así que es un objetivo ideal para empezar en la astrofotografía."
+  ],
+  "others": [
+   {
+    "n": "M43 · Nebulosa de De Mairan",
+    "d": "Forma parte de la misma región, justo al norte de M42."
+   },
+   {
+    "n": "NGC 1977 · Hombre Corredor",
+    "d": "Nebulosa de reflexión situada al norte de M42."
+   },
+   {
+    "n": "Nebulosa de la Flama · NGC 2024",
+    "d": "Junto a Alnitak, en el cinturón de Orión.",
+    "s": "catálogos/ngc/descripciones/ngc_2024/ngc-2024---nebulosa-de-la-flama"
+   },
+   {
+    "n": "Cabeza de Caballo · B33",
+    "d": "Nebulosa oscura que se recorta junto a Alnitak."
+   },
+   {
+    "n": "M78",
+    "d": "Nebulosa de reflexión en el mismo campo de Orión."
+   }
+  ],
+  "sky": {
+   "ra": 83.82,
+   "dec": -5.39,
+   "stars": [
+    [
+     "Betelgeuse",
+     88.79,
+     7.41,
+     0.5
+    ],
+    [
+     "Bellatrix",
+     81.28,
+     6.35,
+     1.6
+    ],
+    [
+     "Meissa",
+     83.78,
+     9.93,
+     3.4
+    ],
+    [
+     "Alnitak",
+     85.19,
+     -1.94,
+     1.8
+    ],
+    [
+     "Alnilam",
+     84.05,
+     -1.2,
+     1.7
+    ],
+    [
+     "Mintaka",
+     83,
+     -0.3,
+     2.2
+    ],
+    [
+     "Saiph",
+     86.94,
+     -9.67,
+     2.1
+    ],
+    [
+     "Rigel",
+     78.63,
+     -8.2,
+     0.1
+    ]
+   ],
+   "lines": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     5,
+     7
+    ]
+   ]
+  },
+  "palette": "orion"
+ },
+ "catálogos/messier/descripciones/m_2/m2---cúmulo-globular": {
+  "name": "M2 · Cúmulo Globular",
+  "model": "globular",
+  "facts": [
+   [
+    "Constelación",
+    "Acuario"
+   ],
+   [
+    "Tipo",
+    "Cúmulo globular"
+   ],
+   [
+    "Magnitud aparente",
+    "+6,3"
+   ],
+   [
+    "Distancia",
+    "37.500 años luz"
+   ],
+   [
+    "Diámetro",
+    "175 años luz"
+   ],
+   [
+    "Estrellas",
+    "175.000 aprox."
+   ],
+   [
+    "Ascensión recta",
+    "21h 33m 27s"
+   ],
+   [
+    "Declinación",
+    "−0° 49′ 24″"
+   ]
+  ],
+  "cats": [
+   "Cúmulo globular",
+   "Catálogo Messier",
+   "Constelación de Acuario",
+   "Estrellas antiguas",
+   "Visible con prismáticos"
+  ],
+  "trivia": [
+   "Es uno de los cúmulos globulares más brillantes y ricos de la Vía Láctea.",
+   "Lo descubrió Jean-Dominique Maraldi en 1746, y Charles Messier lo redescubrió en 1760 y lo añadió a su catálogo.",
+   "Sus estrellas se cuentan por cientos de miles y están entre las más antiguas de la galaxia: se formaron hace unos 13.000 millones de años.",
+   "Con prismáticos se ve como una pequeña mancha borrosa, y su forma es algo achatada, no del todo redonda."
+  ],
+  "others": [
+   {
+    "n": "M72",
+    "d": "Otro cúmulo globular de Acuario, mucho más débil."
+   },
+   {
+    "n": "NGC 7009 · Nebulosa Saturno",
+    "d": "Nebulosa planetaria de Acuario."
+   },
+   {
+    "n": "NGC 7293 · Nebulosa de la Hélice",
+    "d": "Una de las nebulosas planetarias más cercanas a la Tierra."
+   },
+   {
+    "n": "M15",
+    "d": "Cúmulo globular de Pegaso, a unos 13° de M2."
+   }
+  ],
+  "sky": {
+   "ra": 323.36,
+   "dec": -0.82,
+   "stars": [
+    [
+     "Sadalsuud",
+     322.89,
+     -5.57,
+     2.9
+    ],
+    [
+     "Sadalmelik",
+     331.45,
+     -0.32,
+     3
+    ],
+    [
+     "Sadachbia",
+     335.41,
+     -1.39,
+     3.8
+    ],
+    [
+     "Albali",
+     311.92,
+     -9.5,
+     3.8
+    ],
+    [
+     "Ancha",
+     334.21,
+     -7.78,
+     4.2
+    ],
+    [
+     "Skat",
+     343.66,
+     -15.82,
+     3.3
+    ],
+    [
+     "Enif",
+     326.05,
+     9.88,
+     2.4
+    ]
+   ]
+  }
+ },
+ "catálogos/ngc/descripciones/ngc_2024/ngc-2024---nebulosa-de-la-flama": {
+  "name": "NGC 2024 · Nebulosa de la Flama",
+  "model": "nebula",
+  "palette": "flame",
+  "facts": [
+   [
+    "Constelación",
+    "Orión"
+   ],
+   [
+    "Tipo",
+    "Nebulosa de emisión"
+   ],
+   [
+    "Estrella ionizante",
+    "Alnitak"
+   ],
+   [
+    "Ascensión recta",
+    "5h 41m 42s"
+   ],
+   [
+    "Declinación",
+    "−1° 51′"
+   ]
+  ],
+  "cats": [
+   "Nebulosa de emisión",
+   "Región H II",
+   "Formación estelar",
+   "Catálogo NGC",
+   "Constelación de Orión",
+   "Cinturón de Orión"
+  ],
+  "trivia": [
+   "Brilla porque la radiación ultravioleta de Alnitak ioniza el hidrógeno de la nebulosa, que emite luz roja al recuperar electrones.",
+   "Una franja de polvo oscuro se interpone delante de ella y le da su aspecto de llamas.",
+   "En su interior hay un cúmulo de estrellas jóvenes que el polvo oculta a la luz visible y que se descubrió en infrarrojo.",
+   "Es muy débil y cuesta captarla porque Alnitak, muy brillante, deslumbra a su lado."
+  ],
+  "others": [
+   {
+    "n": "M42 · Nebulosa de Orión",
+    "d": "La gran nebulosa de la espada de Orión.",
+    "s": "catálogos/messier/descripciones/m_42/m42---nebulosa-de-orión"
+   },
+   {
+    "n": "Cabeza de Caballo · B33",
+    "d": "Nebulosa oscura muy cerca de la Flama."
+   },
+   {
+    "n": "IC 434",
+    "d": "Nebulosa de emisión sobre la que se recorta la Cabeza de Caballo."
+   },
+   {
+    "n": "Alnitak",
+    "d": "La estrella más oriental del cinturón de Orión."
+   }
+  ],
+  "sky": {
+   "ra": 83.82,
+   "dec": -5.39,
+   "stars": [
+    [
+     "Betelgeuse",
+     88.79,
+     7.41,
+     0.5
+    ],
+    [
+     "Bellatrix",
+     81.28,
+     6.35,
+     1.6
+    ],
+    [
+     "Meissa",
+     83.78,
+     9.93,
+     3.4
+    ],
+    [
+     "Alnitak",
+     85.19,
+     -1.94,
+     1.8
+    ],
+    [
+     "Alnilam",
+     84.05,
+     -1.2,
+     1.7
+    ],
+    [
+     "Mintaka",
+     83,
+     -0.3,
+     2.2
+    ],
+    [
+     "Saiph",
+     86.94,
+     -9.67,
+     2.1
+    ],
+    [
+     "Rigel",
+     78.63,
+     -8.2,
+     0.1
+    ]
+   ],
+   "lines": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     3,
+     6
+    ],
+    [
+     5,
+     7
+    ]
+   ]
+  }
+ },
+ "catálogos/ngc/descripciones/ngc_253/ngc-253---galaxia-moneda-de-plata": {
+  "name": "NGC 253 · Galaxia Moneda de Plata",
+  "model": "galaxy",
+  "facts": [
+   [
+    "Constelación",
+    "Escultor"
+   ],
+   [
+    "Tipo",
+    "Galaxia espiral barrada"
+   ],
+   [
+    "Magnitud aparente",
+    "+7,1"
+   ],
+   [
+    "Distancia",
+    "12,9 millones de años luz"
+   ],
+   [
+    "Tamaño aparente",
+    "27,5′ × 6,8′"
+   ],
+   [
+    "Ascensión recta",
+    "0h 47m 33s"
+   ],
+   [
+    "Declinación",
+    "−25° 17′ 18″"
+   ]
+  ],
+  "cats": [
+   "Galaxia espiral",
+   "Galaxia con brote estelar",
+   "Catálogo NGC",
+   "Constelación del Escultor",
+   "Grupo del Escultor",
+   "Cielo austral"
+  ],
+  "trivia": [
+   "Caroline Herschel la descubrió en 1783.",
+   "Es una galaxia con brote estelar: forma estrellas a un ritmo muy alto en su núcleo.",
+   "La vemos casi de canto, así que su disco aparece alargado y cruzado por bandas de polvo.",
+   "Es una de las galaxias brillantes más cercanas fuera del Grupo Local."
+  ],
+  "others": [
+   {
+    "n": "NGC 288",
+    "d": "Cúmulo globular a poco más de un grado y medio de NGC 253."
+   },
+   {
+    "n": "NGC 55",
+    "d": "Galaxia del Grupo del Escultor."
+   },
+   {
+    "n": "NGC 300",
+    "d": "Galaxia espiral del Grupo del Escultor."
+   },
+   {
+    "n": "NGC 247",
+    "d": "Galaxia espiral de la vecina constelación de la Ballena."
+   }
+  ],
+  "sky": {
+   "ra": 11.89,
+   "dec": -25.29,
+   "stars": [
+    [
+     "α Escultor",
+     14.65,
+     -29.36,
+     4.3
+    ],
+    [
+     "β Escultor",
+     353.24,
+     -37.82,
+     4.4
+    ],
+    [
+     "γ Escultor",
+     349.7,
+     -32.53,
+     4.4
+    ],
+    [
+     "δ Escultor",
+     357.23,
+     -28.13,
+     4.6
+    ],
+    [
+     "Diphda",
+     10.9,
+     -17.99,
+     2
+    ],
+    [
+     "Ankaa",
+     6.57,
+     -42.31,
+     2.4
+    ]
+   ]
+  }
+ },
+ "catálogos/sistsolar/descripciones/luna": {
+  "name": "Luna",
+  "model": "moon",
+  "body": "moon",
+  "facts": [
+   [
+    "Constelación",
+    "@const"
+   ],
+   [
+    "Fase hoy",
+    "@phase"
+   ],
+   [
+    "Tipo",
+    "Satélite natural"
+   ],
+   [
+    "Distancia",
+    "384.400 km"
+   ],
+   [
+    "Diámetro",
+    "3474,8 km"
+   ],
+   [
+    "Masa",
+    "1/81 de la Tierra"
+   ],
+   [
+    "Periodo orbital",
+    "27,3 días"
+   ]
+  ],
+  "cats": [
+   "Satélite natural",
+   "Sistema Tierra-Luna",
+   "Sistema Solar",
+   "Visible a simple vista"
+  ],
+  "trivia": [
+   "Siempre vemos la misma cara, porque la fuerza de marea de la Tierra sincronizó su giro con su órbita.",
+   "Los «mares» lunares son llanuras de lava solidificada de origen volcánico.",
+   "Se aleja de la Tierra unos 3,8 cm al año.",
+   "Es el único cuerpo, fuera de la Tierra, al que han llegado seres humanos."
+  ],
+  "others": [
+   {
+    "n": "Sol",
+    "d": "La estrella que ilumina la Luna.",
+    "s": "catálogos/sistsolar/descripciones/sol"
+   },
+   {
+    "n": "Saturno",
+    "d": "Planeta con anillos que a veces se ve junto a la Luna.",
+    "s": "catálogos/sistsolar/descripciones/saturno"
+   },
+   {
+    "n": "Júpiter",
+    "d": "Planeta que suele verse cerca de la Luna."
+   }
+  ]
+ },
+ "catálogos/sistsolar/descripciones/saturno": {
+  "name": "Saturno",
+  "model": "saturn",
+  "body": "saturn",
+  "facts": [
+   [
+    "Constelación",
+    "@const"
+   ],
+   [
+    "Tipo",
+    "Planeta gaseoso"
+   ],
+   [
+    "Diámetro",
+    "120.536 km"
+   ],
+   [
+    "Distancia al Sol",
+    "1430 millones de km"
+   ],
+   [
+    "Periodo orbital",
+    "29,4 años"
+   ],
+   [
+    "Rotación",
+    "10,7 horas aprox."
+   ]
+  ],
+  "cats": [
+   "Planeta gaseoso",
+   "Sistema Solar",
+   "Planeta con anillos",
+   "Planeta exterior",
+   "Visible a simple vista"
+  ],
+  "trivia": [
+   "Es menos denso que el agua: flotaría en un océano lo bastante grande.",
+   "Sus anillos miden cientos de miles de kilómetros de ancho, pero suelen tener solo unas decenas de metros de grosor.",
+   "Un año de Saturno dura unos 29 años terrestres.",
+   "Cada unos 15 años vemos los anillos casi de canto y parecen desaparecer."
+  ],
+  "others": [
+   {
+    "n": "Sol",
+    "d": "Su estrella, a unos 1430 millones de km.",
+    "s": "catálogos/sistsolar/descripciones/sol"
+   },
+   {
+    "n": "Luna",
+    "d": "La Luna a veces pasa junto a Saturno.",
+    "s": "catálogos/sistsolar/descripciones/luna"
+   },
+   {
+    "n": "Júpiter",
+    "d": "El único planeta mayor que Saturno."
+   },
+   {
+    "n": "Titán",
+    "d": "La mayor luna de Saturno."
+   }
+  ]
+ },
+ "catálogos/sistsolar/descripciones/sol": {
+  "name": "Sol",
+  "model": "sun",
+  "body": "sun",
+  "facts": [
+   [
+    "Constelación",
+    "@const"
+   ],
+   [
+    "Tipo",
+    "Estrella de tipo G"
+   ],
+   [
+    "Diámetro",
+    "1.392.700 km"
+   ],
+   [
+    "Distancia a la Tierra",
+    "149,6 millones de km"
+   ],
+   [
+    "Edad",
+    "4600 millones de años"
+   ],
+   [
+    "Temperatura superficial",
+    "5500 °C aprox."
+   ]
+  ],
+  "cats": [
+   "Estrella",
+   "Secuencia principal",
+   "Sistema Solar",
+   "Enana amarilla"
+  ],
+  "trivia": [
+   "Concentra alrededor del 99,86 % de la masa de todo el Sistema Solar.",
+   "Su luz tarda unos 8 minutos y 20 segundos en llegar a la Tierra.",
+   "En su núcleo convierte unos 600 millones de toneladas de hidrógeno en helio cada segundo.",
+   "Está más o menos en la mitad de su vida."
+  ],
+  "others": [
+   {
+    "n": "Luna",
+    "d": "Su luz reflejada ilumina nuestras noches.",
+    "s": "catálogos/sistsolar/descripciones/luna"
+   },
+   {
+    "n": "Saturno",
+    "d": "Planeta con anillos.",
+    "s": "catálogos/sistsolar/descripciones/saturno"
+   },
+   {
+    "n": "Próxima Centauri",
+    "d": "La estrella más cercana al Sol."
+   }
+  ]
+ }
+}
